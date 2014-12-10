@@ -1,0 +1,16 @@
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\bin\Debug\NHibernateTutorialPart1.exe.config
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\bin\Debug\Database1.sdf
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\bin\Debug\NHibernateTutorialPart1.exe
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\bin\Debug\NHibernateTutorialPart1.pdb
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\bin\Debug\Iesi.Collections.dll
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\bin\Debug\NHibernate.dll
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\bin\Debug\Iesi.Collections.pdb
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\bin\Debug\Iesi.Collections.xml
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\bin\Debug\NHibernate.pdb
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\bin\Debug\NHibernate.xml
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\obj\Debug\NHibernateTutorialPart1.Properties.Resources.resources
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\obj\Debug\NHibernateTutorialPart1.csproj.GenerateResource.Cache
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\obj\Debug\NHibernateTutorialPart1.exe
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\obj\Debug\NHibernateTutorialPart1.pdb
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\obj\Debug\NHibernateTutorialPart1.Form1.resources
+c:\users\s.harchenko\documents\visual studio 2012\Projects\NHibernateTutorialPart1\NHibernateTutorialPart1\bin\Debug\System.Data.SqlServerCe.dll
