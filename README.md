@@ -36,3 +36,22 @@ IList selection =
             CatName = (string)properties[0],
             CatAge = (int)properties[1],
             });
+            
+LINQ 
+===
+
+```
+from ugl in Usergridlayouts
+    join sl in Sharedlayouts
+        on ugl.ID equals sl.LayoutID into joined
+	from res in joined.DefaultIfEmpty()
+    where ugl.Page == "OrderListLayout" && (ugl.UserID == 11427 || res.UserID == 11427)
+    select new
+	{
+		ugl.ID, ugl.TextLayout, ugl.UserID, ugl.Page, ugl.TextLayoutXML, ugl.XMLformat,
+		Name = (res.UserID == 11427) ? ugl.Name+" (Admin)" : ugl.Name, 
+		Selected = (res.UserID == 11427)? res.Selected : ugl.Selected 
+	}
+	```
+	
+	
