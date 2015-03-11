@@ -53,7 +53,7 @@ from ugl in Usergridlayouts
 		Name = (res.UserID == 11427) ? ugl.Name+" (Admin)" : ugl.Name, 
 		Selected = (res.UserID == 11427)? res.Selected : ugl.Selected 
 	}
-	```
+```
 	
 	
 LIKE 
