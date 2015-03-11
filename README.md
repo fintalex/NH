@@ -55,3 +55,31 @@ from ugl in Usergridlayouts
 	```
 	
 	
+LIKE 
+====
+
+Имееися следующий класс
+
+```
+public class Payment
+	{
+		public virtual Int64 ID { get; set; }
+		public virtual string Account { get; set; }
+		public virtual decimal Sum { get; set; }
+		public virtual DateTime Date { get; set; }
+		public virtual long IdPayment { get; set; }
+		public virtual Guid Gate { get; set; }
+		public virtual Guid Provider { get; set; }
+	}
+	```
+	
+```
+if (!String.IsNullOrEmpty(account))
+					resultList = resultList.And(Restrictions.On<Payment>(p => p.Account).IsLike(account, MatchMode.Anywhere));
+
+				if (idPayment != null)
+					resultList = resultList.And(Restrictions.Like(
+						Projections.Cast(NHibernateUtil.String, Projections.Property("IdPayment")), 
+						idPayment.ToString(), 
+						MatchMode.Anywhere));
+```
