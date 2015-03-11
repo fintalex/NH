@@ -72,15 +72,20 @@ public class Payment
 		public virtual Guid Gate { get; set; }
 		public virtual Guid Provider { get; set; }
 	}
-	```
-	
+```
+
+Есть два хитрых метода для выполнения операция LIKE как в SQL. В первом случае работае шикарно, можно не использовать MatchMode.Anywhere, но тогда надо расставлять знак %.
+Можно еще сделать и так Restrictions.Like("Account", account,  MatchMode.Anywhere). Но такой вид не очень нравится, так как здесь напрямую используем название поля Account. 
+
+А вот во втором варианте нашел единственный способ, который работает. Так как LIKE нужно было выполнить для свойства типа long. Необходимо делать волшебные преобразования Projections.Cast(NHibernateUtil.String, Projections.Property("IdPayment")) и да, здесь тоже используем название поля - не очень красиво. 
+
 ```
 if (!String.IsNullOrEmpty(account))
-					resultList = resultList.And(Restrictions.On<Payment>(p => p.Account).IsLike(account, MatchMode.Anywhere));
+	resultList = resultList.And(Restrictions.On<Payment>(p => p.Account).IsLike(account, MatchMode.Anywhere));
 
-				if (idPayment != null)
-					resultList = resultList.And(Restrictions.Like(
-						Projections.Cast(NHibernateUtil.String, Projections.Property("IdPayment")), 
-						idPayment.ToString(), 
-						MatchMode.Anywhere));
+if (idPayment != null)
+	resultList = resultList.And(Restrictions.Like(
+		Projections.Cast(NHibernateUtil.String, Projections.Property("IdPayment")), 
+		idPayment.ToString(), 
+		MatchMode.Anywhere));
 ```
