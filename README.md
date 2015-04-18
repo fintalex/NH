@@ -109,3 +109,57 @@ service_id| guid | Составной ключ - для связи с табли
 ---|---|---
 **id** | guid | Первичный ключ
 ...|...|...
+
+Ну а теперь классы, mapping и использование. 
+
+**Классы**. Класс промежуточной таблицы нам впринципи на фиг не нужен.
+
+```
+public class Company
+{
+	public virtual Guid IDCompany { get; set; }
+	//...............................
+	public virtual Guid? ServicesListID { get; set; }
+	public virtual IList<CompanyService> CompaniesServices { get; set; }
+}
+
+public class CompanyService
+{
+	public virtual Guid ID { get; set; }
+	// ..............
+	public virtual IList<Company> Companys { get; set; }
+}
+```
+
+**Mapping** - вот это самое интересное.
+
+```
+<class name="Company" table="company.company" xmlns="urn:nhibernate-mapping-2.2">
+	<id name="IDCompany" unsaved-value="00000000-0000-0000-0000-000000000000" column="id_company" type="Guid">
+		<generator class="guid"/>
+	</id>
+	...
+	<property name="ServicesListID" column="id_services_list" type="Guid" not-null="false" />
+	<bag name="CompaniesServices" table="company.service_list" lazy="false">
+		<key column="id" property-ref="ServicesListID"/>
+		<many-to-many class="CompanyService" column="service_id" />
+	</bag>
+</class>
+
+class name="CompanyService" table="services.services" xmlns="urn:nhibernate-mapping-2.2">
+	<id name="ID" unsaved-value="00000000-0000-0000-0000-000000000000" column="id" type="Guid">
+		<generator class="guid"/>
+	</id>
+	...
+	<bag name="Companys" table="company.service_list" lazy="false">
+		<key column="service_id" />
+		<many-to-many class="Company" column="id"  />
+	</bag>
+</class>
+```
+
+Немного пояснения. Важного пояснения. В **bag**  мы указываем атрибут **table** и указываем связующую таблицу - company.service_list. В **name** даем название нашего поля класса который будет представлен затем в виде списка. 
+Далее в **key** указываем в атрибуте **column** название колонки по которой привязана текущая таблица. (services.services привязана к полю service_id).  Далее в **many-to-many** в аттрибуте **class** указываем класс, список которого мы будем иметь или к которому мы привязываемся, а в атрибуте **column** указываем колонку в связующей таблице по которой этот класс привязан. 
+
+Все бы хорошо, но по умолчение NH думает что мы реализуем отношение и привязку к промежуточной таблице по первичным ключам связующих таблиц. Но у нас та company.company привязана через колонку id_services_list. Поэтому нам для маппинга company нужно указать в **key** в атрибуте **property-ref** колонку для связи. 
+
