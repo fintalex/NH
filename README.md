@@ -88,3 +88,10 @@ if (idPayment != null)
 
 Enough talking. Let's see an example. 
 
+### Company.company table###
+
+Имя столбца | тип
+---|---
+**id_company** | guid
+...|...
+id_service_list| guid
