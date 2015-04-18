@@ -8,7 +8,7 @@ NH
 3. [Некоторые виды запросов](http://www.martinwilley.com/net/code/nhibernate/query.html)
 4. [Еще сайт с запросами](http://nhibernate.info/blog/2009/12/17/queryover-in-nh-3-0.html)
 
-Оглавление
+<a name='ogl'>Оглавление</a>
 ===
 
 1. [LINQ](#linq)
@@ -42,7 +42,9 @@ IList selection =
             CatAge = (int)properties[1],
             });
 ```
-            
+
+##[Оглавление](#ogl)##
+
 ###<a name='linq'>LINQ</a>
 
 
