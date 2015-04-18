@@ -8,10 +8,13 @@ NH
 3. [Некоторые виды запросов](http://www.martinwilley.com/net/code/nhibernate/query.html)
 4. [Еще сайт с запросами](http://nhibernate.info/blog/2009/12/17/queryover-in-nh-3-0.html)
 
+---
+
 <a name='ogl'>Оглавление</a>
 ===
 
 1. [LINQ](#linq)
+1. [LIKE](#like)
 
 Additional Restrictions
 
@@ -43,7 +46,8 @@ IList selection =
             });
 ```
 
-##[Оглавление](#ogl)##
+[Оглавление](#ogl)
+---
 
 ###<a name='linq'>LINQ</a>
 
@@ -62,11 +66,12 @@ from ugl in Usergridlayouts
 	}
 ```
 	
-	
-LIKE 
-====
+[Оглавление](#ogl)
+---
 
-Имееися следующий класс
+###<a name='like'>LIKE</a>
+
+Имеется следующий класс
 
 ```
 public class Payment
@@ -81,7 +86,7 @@ public class Payment
 	}
 ```
 
-Есть два хитрых метода для выполнения операция LIKE как в SQL. В первом случае работае шикарно, можно не использовать MatchMode.Anywhere, но тогда надо расставлять знак %.
+Есть два хитрых метода для выполнения операцй LIKE как в SQL. В первом случае работае шикарно, можно не использовать MatchMode.Anywhere, но тогда надо расставлять знак %.
 Можно еще сделать и так Restrictions.Like("Account", account,  MatchMode.Anywhere). Но такой вид не очень нравится, так как здесь напрямую используем название поля Account. 
 
 А вот во втором варианте нашел единственный способ, который работает. Так как LIKE нужно было выполнить для свойства типа long. Необходимо делать волшебные преобразования Projections.Cast(NHibernateUtil.String, Projections.Property("IdPayment")) и да, здесь тоже используем название поля - не очень красиво. 
