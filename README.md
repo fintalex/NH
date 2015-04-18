@@ -8,6 +8,10 @@ NH
 3. [Некоторые виды запросов](http://www.martinwilley.com/net/code/nhibernate/query.html)
 4. [Еще сайт с запросами](http://nhibernate.info/blog/2009/12/17/queryover-in-nh-3-0.html)
 
+Оглавление
+===
+
+1. [LINQ](#linq)
 
 Additional Restrictions
 
@@ -19,6 +23,7 @@ Some SQL operators/functions do not have a direct equivalent in C#. (e.g., the S
 
 для того чтобы выбрать нужные поля
 
+```
 IList selection =
     session.QueryOver<Cat>()
         .Select(
@@ -36,10 +41,10 @@ IList selection =
             CatName = (string)properties[0],
             CatAge = (int)properties[1],
             });
-            ```
+```
             
-LINQ 
-===
+###<a name='linq'>LINQ</a>
+
 
 ```
 from ugl in Usergridlayouts
