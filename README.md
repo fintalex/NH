@@ -88,10 +88,24 @@ if (idPayment != null)
 
 Enough talking. Let's see an example. 
 
-### Company.company table###
+### Company.company ### table - наши компании которые могут иметь много сервисов
 
-Имя столбца | тип
----|---
-**id_company** | guid
-...|...
-id_service_list| guid
+Имя столбца | тип | Описание
+---|---|---
+**id_company** | guid | Первичный ключ
+...|...|...
+id_service_list| guid | Гуид для связи со списками в таблице service_list
+
+### Company.service_list ### table - связующая таблица
+
+Имя столбца | тип | Описание
+---|---|---
+id | guid | Составной ключ - для связи с таблице company по полю id_service_list
+service_id| guid | Составной ключ - для связи с таблице services по полю id
+
+### Services.services ### table - наши сервисы которые могут иметь много компаний
+
+Имя столбца | тип | Описание
+---|---|---
+**id** | guid | Первичный ключ
+...|...|...
